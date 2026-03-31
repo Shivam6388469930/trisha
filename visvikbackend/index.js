@@ -43,7 +43,7 @@ app.options("*", cors(corsOptions));
 app.use(express.json());
 
 // ✅ Static files (uploads folder)
-app.use(express.static("public/uploads"));
+app.use(express.static("/public/uploads"));
 
 // ✅ Logger
 app.use(morgan("dev"));
