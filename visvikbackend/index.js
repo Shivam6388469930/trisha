@@ -24,17 +24,20 @@ const allowedOrigins = [
   "https://trishaconsultancyservices.online"
 ];
 
-app.use(cors({
+
+const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, Postman)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 // ✅ Body parser
 app.use(express.json());
