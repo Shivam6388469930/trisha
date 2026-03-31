@@ -18,32 +18,32 @@ import router from "./Route/service.js";
 const app = express();
 
 // ✅ CORS allow multiple origins
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://www.trishaconsultancyservices.online",
-  "https://trishaconsultancyservices.online"
-];
+// const allowedOrigins = [
+//   "http://localhost:3000",
 
+// ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (like mobile apps, curl, Postman)
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true
+// }));
+const allowedOrigins = ["http://localhost:3000", "https://www.trishaconsultancyservices.online", "https://trishaconsultancyservices.online"];
+const corsOptions = { origin: function (origin, callback) { if (!origin || allowedOrigins.includes(origin)) { callback(null, true); } else { callback(new Error("Not allowed by CORS")); } }, credentials: true, }; 
+app.use(cors(corsOptions)); 
+app.options("/", cors(corsOptions));
 
 // ✅ Body parser
 app.use(express.json());
 
 // ✅ Static files (uploads folder)
-app.use(express.static("/public/uploads"));
+app.use(express.static("public/uploads"));
 
 // ✅ Logger
 app.use(morgan("dev"));
