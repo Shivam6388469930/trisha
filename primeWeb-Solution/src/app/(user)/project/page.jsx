@@ -7,7 +7,8 @@ import { Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import useSWR from 'swr';
 import '../../css/project.css';
-import { BASE_URL } from '@/app/lib/api';
+import { BASE_URL } from '../../../../api';
+
 // Fetcher for SWR
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -225,7 +226,7 @@ const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const { data, error, isLoading } = useSWR(
-    '${BASE_URL}/v1/project',
+    `${BASE_URL}/v1/project`,
     fetcher
   );
 
@@ -267,7 +268,7 @@ const ProjectsPage = () => {
           <p className="text-red-400 text-xl mb-2">Failed to load projects</p>
           <p className="text-white/80 text-sm">
             Make sure your backend is running on{' '}
-            <code className="bg-white/10 px-2 rounded">{BASE_URL}</code>
+            <code className="bg-white/10 px-2 rounded">server</code>
           </p>
         </div>
       </div>
