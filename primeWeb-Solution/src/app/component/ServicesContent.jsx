@@ -10,6 +10,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial } from '@react-three/drei';
 import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
+import { BASE_URL } from '../../../api';
 
 // Floating 3D Icons Background
 const FloatingIcons = () => {
@@ -174,7 +175,7 @@ export default function ServicesPage() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/v1/service');
+        const res = await axios.get(`${BASE_URL}/v1/service`);
         setServices(res.data.services || []);
         setLoading(false);
       } catch (err) {

@@ -4,6 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Text, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import '../../css/contact.css';
+import { BASE_URL } from '../../../../api';
 
 // 3D Floating Contact Icons
 const FloatingIcons = () => {
@@ -170,7 +171,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/v1/queries", {
+      const response = await fetch(`${ BASE_URL}/v1/queries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

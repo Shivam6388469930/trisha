@@ -44,6 +44,7 @@ import {
   Share2
 
 } from 'lucide-react';
+import { BASE_URL } from '../../api';
 
 // Enhanced 3D Animated Background
 const AnimatedBackground = () => {
@@ -551,57 +552,8 @@ const Testimonials = () => {
 
 // Contact Form
 const ContactForm = () => {
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   phone: '',
-  //   message: '',
-  // });
-
-  // const [formData, setFormData] = useState({
-  //     name: "",
-  //     email: "",
-  //     phoneNumber: "",
-  //     message: ""
-  //   });
   const [submitted, setSubmitted] = useState(false);
-  //  const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-
-  //   try {
-  //     const response = await fetch("http://localhost:5000/v1/queries", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(data.message || "Failed to submit query");
-  //     }
-
-  //     setSubmitStatus("success");
-
-  //     // Reset form
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       phoneNumber: "",
-  //       message: "",
-  //     });
-
-  //   } catch (err) {
-  //     setSubmitStatus("error");
-  //   }
-
-  //   setIsSubmitting(false);
-
-  //   setTimeout(() => {
-  //     setSubmitStatus("");
-  //   }, 3000);
-  // };
+  
   const [formData, setFormData] = useState({
   name: "",
   email: "",
@@ -617,7 +569,7 @@ const handleSubmit = async (e) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("http://localhost:5000/v1/queries", {
+    const response = await fetch(`${ BASE_URL}/v1/queries`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

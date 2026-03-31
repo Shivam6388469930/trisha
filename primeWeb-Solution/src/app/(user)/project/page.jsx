@@ -225,7 +225,7 @@ const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const { data, error, isLoading } = useSWR(
-    'http://localhost:5000/v1/project',
+    '${BASE_URL}/v1/project',
     fetcher
   );
 
@@ -267,7 +267,7 @@ const ProjectsPage = () => {
           <p className="text-red-400 text-xl mb-2">Failed to load projects</p>
           <p className="text-white/80 text-sm">
             Make sure your backend is running on{' '}
-            <code className="bg-white/10 px-2 rounded">localhost:5000</code>
+            <code className="bg-white/10 px-2 rounded">{BASE_URL}</code>
           </p>
         </div>
       </div>

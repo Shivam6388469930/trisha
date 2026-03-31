@@ -8,9 +8,10 @@ import {
   Mail, Phone, Building, BadgeCheck
 } from "lucide-react";
 import axios from "axios";
+import { BASE_URL } from "../../../../api";
 
 // Update this URL if your backend runs on different port
-const API_URL = "http://localhost:5000/v1/team";
+const API_URL = `${ BASE_URL}/v1/team`;
 
 // --------------------------------------------------------------------
 // TEAM MEMBER FORM (Add + Edit) - Unchanged UI

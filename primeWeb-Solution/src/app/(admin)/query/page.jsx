@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Eye, Trash2, Search, X, Mail, Phone } from "lucide-react";
+import { BASE_URL } from "../../../../api";
 
 export default function QueryPage() {
   const [users, setUsers] = useState([]);
@@ -10,7 +11,7 @@ export default function QueryPage() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:5000/v1/queries";
+  const API_URL = `${ BASE_URL}/v1/queries`;
 
   // ⭐ Fetch Queries
   const getQueries = async () => {

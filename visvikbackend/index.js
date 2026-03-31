@@ -20,7 +20,7 @@ const app = express();
 // ✅ CORS allow multiple origins
 const allowedOrigins = [
   "http://localhost:3000",
- 
+  "https://www.trishaconsultancyservices.online"
 ];
 
 app.use(cors({

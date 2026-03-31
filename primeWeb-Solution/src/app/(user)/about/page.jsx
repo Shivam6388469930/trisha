@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { BASE_URL } from '../../../../api';
 
 // -----------------------
 // CLEAN COMPANY 3D BACKGROUND
@@ -113,7 +114,7 @@ const AboutPage = () => {
 useEffect(() => {
   const fetchTeam = async () => {
     try {
-      const res = await fetch("http://localhost:5000/v1/team", {
+      const res = await fetch(`${ BASE_URL}/v1/team`, {
         method: "GET",
       });
 

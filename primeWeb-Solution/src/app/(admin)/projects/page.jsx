@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
+import { BASE_URL } from "../../../../api";
 
-const API_URL = "http://localhost:5000/v1/project";
+const API_URL = `${ BASE_URL}/v1/project`;
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);

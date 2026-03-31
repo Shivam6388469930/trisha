@@ -5,6 +5,7 @@ import {
   FaEye, FaTrash, FaTimes, FaSearch, FaEnvelope, FaPhone,
   FaBuilding, FaGlobe, FaTag, FaMoneyBill, FaComment, FaUser
 } from "react-icons/fa";
+import { BASE_URL } from "../../../../api";
 
 export default function Getintouch() {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ export default function Getintouch() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:5000/v1/get-in-touch";
+  const API_URL = `${ BASE_URL}/v1/get-in-touch`;
 
   // Fetch Data From Backend
   const getData = async () => {
