@@ -150,7 +150,7 @@ const router=useRouter()
 router.push('/services')
 
     try {
-      await axios.post(`${ BASE_URL}/v1/get-in-touch`, formData);
+      await axios.post(`${BASE_URL}/v1/get-in-touch`, formData);
 
       setResponseMsg("Your inquiry has been submitted successfully!");
       setFormData({
