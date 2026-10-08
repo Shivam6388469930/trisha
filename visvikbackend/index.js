@@ -34,7 +34,7 @@ const app = express();
 //   },
 //   credentials: true
 // }));
-const allowedOrigins = ["http://localhost:3000", "https://www.trishaconsultancyservices.online", "https://trishaconsultancyservices.online"];
+const allowedOrigins = ["http://localhost:3000", "https://www.trishaconsultancyservices.online", "https://trishaconsultancyservices.online","https://www.aginnovations.online","https://aginnovations.online"];
 const corsOptions = { origin: function (origin, callback) { if (!origin || allowedOrigins.includes(origin)) { callback(null, true); } else { callback(new Error("Not allowed by CORS")); } }, credentials: true, }; 
 app.use(cors(corsOptions)); 
 app.options("/", cors(corsOptions));
